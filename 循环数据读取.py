@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 循环数据读取
-data_path = r'C:/Users/黄耀迪/Downloads/69#.xls'
+data_path = r'C:/Users/74098/Downloads/44#.xls'
 data = xlrd.open_workbook(data_path)
 table_name = data.sheet_names()
 Detail_Sheet_Index = []
@@ -269,7 +269,7 @@ fig = plt.figure(figsize=(3,3),dpi=300)
 grid = plt.GridSpec(15,9)
 camp = plt.get_cmap('Blues')
 ax1 = fig.add_subplot(grid[:4,:4])
-ax1.set_prop_cycle(color=[camp(1*i/len(Current_ALL_Charge_process)) for i in range(len(Current_ALL_Charge_process))])
+ax1.set_prop_cycle(color=[camp((i+200)/(len(Current_ALL_Charge_process)+200)) for i in range(len(Current_ALL_Charge_process))])
 for i in range(len(Current_ALL_Charge_process)):
     ax1.plot(Time_ALL_Charge_process[i],Current_ALL_Charge_process[i])
 ax1.set_title('Charge Current',fontsize=3)
@@ -279,7 +279,7 @@ plt.xlabel('Time (min)',fontsize=3)
 plt.ylabel('Current (mA)',fontsize=3)
 #Voltage
 ax2 = fig.add_subplot(grid[:4,5:9])
-ax2.set_prop_cycle(color=[camp(1*i/len(Voltage_ALL_Charge_process)) for i in range(len(Voltage_ALL_Charge_process))])
+ax2.set_prop_cycle(color=[camp((i+200)/(len(Current_ALL_Charge_process)+200)) for i in range(len(Voltage_ALL_Charge_process))])
 for i in range(len(Voltage_ALL_Charge_process)):
     ax2.plot(Time_ALL_Charge_process[i],Voltage_ALL_Charge_process[i])
 ax2.set_title('Charge Voltage',fontsize=3)
@@ -289,7 +289,7 @@ plt.xlabel('Time (min)',fontsize=3)
 plt.ylabel('V (V)',fontsize=3)
 # Capacity
 ax3 = fig.add_subplot(grid[7:11,:4])
-ax3.set_prop_cycle(color=[camp(1*i/len(Time_ALL_Charge_process)) for i in range(len(Time_ALL_Charge_process))])
+ax3.set_prop_cycle(color=[camp((i+200)/(len(Current_ALL_Charge_process)+200)) for i in range(len(Time_ALL_Charge_process))])
 for i in range(len(Capacity_ALL_Charge_process)):
     ax3.plot(Time_ALL_Charge_process[i],Capacity_ALL_Charge_process[i])
 plt.xticks(fontsize=3)
@@ -299,7 +299,7 @@ plt.xlabel('Time (min)',fontsize=3)
 plt.ylabel('Capacity (mAh)',fontsize=3)
 # Energy
 ax4 = fig.add_subplot(grid[7:11,5:9])
-ax4.set_prop_cycle(color=[camp(1*i/len(Energy_ALL_Charge_process)) for i in range(len(Energy_ALL_Charge_process))])
+ax4.set_prop_cycle(color=[camp((i+200)/(len(Current_ALL_Charge_process)+200)) for i in range(len(Energy_ALL_Charge_process))])
 for i in range(len(Energy_ALL_Charge_process)):
     ax4.plot(Time_ALL_Charge_process[i],Energy_ALL_Charge_process[i])
 ax4.set_title('Charge Energy',fontsize=3)
@@ -309,7 +309,7 @@ plt.xlabel('Time (min)',fontsize=3)
 plt.ylabel('Energy (mWh)',fontsize=3)
 #color bar
 ax5 = fig.add_subplot(grid[14,:])
-ax5.set_prop_cycle(color=[camp(1*i/len(Energy_ALL_Charge_process)) for i in range(len(Energy_ALL_Charge_process))])
+ax5.set_prop_cycle(color=[camp((i+200)/(len(Current_ALL_Charge_process)+200)) for i in range(len(Energy_ALL_Charge_process))])
 cycle_number = np.ones([len(Energy_ALL_Charge_process),1])
 for i in range(len(Energy_ALL_Charge_process)):
     ax5.barh(np.array([0]),cycle_number[i],left=np.sum(cycle_number[:i],axis=0))
@@ -330,7 +330,7 @@ fig = plt.figure(figsize=(3,3),dpi=300)
 grid = plt.GridSpec(15,9)
 camp = plt.get_cmap('Blues')
 ax1 = fig.add_subplot(grid[:4,:4])
-ax1.set_prop_cycle(color=[camp(1*i/len(Current_ALL_Discharge_process)) for i in range(len(Current_ALL_Discharge_process))])
+ax1.set_prop_cycle(color=[camp((i+200)/(len(Current_ALL_Discharge_process)+200)) for i in range(len(Current_ALL_Discharge_process))])
 for i in range(len(Current_ALL_Discharge_process)):
     ax1.plot(Time_ALL_Discharge_process[i],Current_ALL_Discharge_process[i])
 ax1.set_title('Discharge Current',fontsize=3)
@@ -340,7 +340,7 @@ plt.xlabel('Time (min)',fontsize=3)
 plt.ylabel('Current (mA)',fontsize=3)
 #Voltage
 ax2 = fig.add_subplot(grid[:4,5:9])
-ax2.set_prop_cycle(color=[camp(1*i/len(Voltage_ALL_Discharge_process)) for i in range(len(Voltage_ALL_Discharge_process))])
+ax2.set_prop_cycle(color=[camp((i+200)/(len(Current_ALL_Discharge_process)+200)) for i in range(len(Voltage_ALL_Discharge_process))])
 for i in range(len(Voltage_ALL_Discharge_process)):
     ax2.plot(Time_ALL_Discharge_process[i],Voltage_ALL_Discharge_process[i])
 ax2.set_title('Discharge Voltage',fontsize=3)
@@ -350,7 +350,7 @@ plt.xlabel('Time (min)',fontsize=3)
 plt.ylabel('V (V)',fontsize=3)
 # Capacity
 ax3 = fig.add_subplot(grid[7:11,:4])
-ax3.set_prop_cycle(color=[camp(1*i/len(Capacity_ALL_Discharge_process)) for i in range(len(Capacity_ALL_Discharge_process))])
+ax3.set_prop_cycle(color=[camp((i+200)/(len(Current_ALL_Discharge_process)+200)) for i in range(len(Capacity_ALL_Discharge_process))])
 for i in range(len(Capacity_ALL_Discharge_process)):
     ax3.plot(Time_ALL_Discharge_process[i],Capacity_ALL_Discharge_process[i])
 ax3.set_title('Discharge Capacity',fontsize=3)
@@ -360,7 +360,7 @@ plt.xlabel('Time (min)',fontsize=3)
 plt.ylabel('Capacity (mAh)',fontsize=3)
 # Energy
 ax4 = fig.add_subplot(grid[7:11,5:9])
-ax4.set_prop_cycle(color=[camp(1*i/len(Energy_ALL_Discharge_process)) for i in range(len(Energy_ALL_Discharge_process))])
+ax4.set_prop_cycle(color=[camp((i+200)/(len(Current_ALL_Discharge_process)+200)) for i in range(len(Energy_ALL_Discharge_process))])
 for i in range(len(Energy_ALL_Discharge_process)):
     ax4.plot(Time_ALL_Discharge_process[i],Energy_ALL_Discharge_process[i])
 ax4.set_title('Discharge Energy',fontsize=3)
@@ -370,7 +370,7 @@ plt.xlabel('Time (min)',fontsize=3)
 plt.ylabel('Energy (mWh)',fontsize=3)
 #color bar
 ax5 = fig.add_subplot(grid[14,:])
-ax5.set_prop_cycle(color=[camp(1*i/len(Energy_ALL_Discharge_process)) for i in range(len(Energy_ALL_Discharge_process))])
+ax5.set_prop_cycle(color=[camp((i+200)/(len(Current_ALL_Discharge_process)+200)) for i in range(len(Energy_ALL_Discharge_process))])
 cycle_number = np.ones([len(Energy_ALL_Discharge_process),1])
 for i in range(len(Energy_ALL_Discharge_process)):
     ax5.barh(np.array([0]),cycle_number[i],left=np.sum(cycle_number[:i],axis=0))
@@ -398,7 +398,7 @@ Cycle_Charge = [i for i in range(1,len(Charge_Cap)+1)]
 Cycle_Discharge = [i for i in range(1,len(Discharge_Cap)+1)]
 #charge capacity
 ax1 = fig.add_subplot(grid[:2,:])
-cc = ax1.scatter(Cycle_Charge,Charge_Cap,c=Cycle_Charge,cmap='Blues',s=3)
+cc = ax1.scatter(Cycle_Charge,Charge_Cap,c=camp((int(len(Current_ALL_Charge_process)/2)+200)/(len(Current_ALL_Charge_process)+200)),s=3)
 ax1.set_title('Charge Capacity',fontsize=3)
 plt.xticks(fontsize=3)
 plt.yticks(fontsize=3)
@@ -406,25 +406,14 @@ plt.xlabel('Cycle Number',fontsize=3)
 plt.ylabel('Capacity (mAh)',fontsize=3)
 #discharge capacity
 ax2 = fig.add_subplot(grid[3:,:])
-dc = ax2.scatter(Cycle_Discharge,Discharge_Cap,c=Cycle_Discharge,cmap='Blues',s=3)
+dc = ax2.scatter(Cycle_Charge,Charge_Cap,c=camp((int(len(Current_ALL_Charge_process)/2)+200)/(len(Current_ALL_Charge_process)+200)),s=3)
 ax2.set_title('Discharge Capacity',fontsize=3)
 plt.xticks(fontsize=3)
 plt.yticks(fontsize=3)
 plt.xlabel('Cycle Number',fontsize=3)
 plt.ylabel('Capacity (mAh)',fontsize=3)
-cb1 = fig.colorbar(cc,ax=ax1)
-cb2 = fig.colorbar(dc,ax=ax2)
-cb1.ax.tick_params(labelsize=3)
-cb2.ax.tick_params(labelsize=3)
+#cb1 = fig.colorbar(cc,ax=ax1)
+#cb2 = fig.colorbar(dc,ax=ax2)
+#cb1.ax.tick_params(labelsize=3)
+#cb2.ax.tick_params(labelsize=3)
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
